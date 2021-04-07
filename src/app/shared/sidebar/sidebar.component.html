@@ -5,22 +5,22 @@
     <div class="side-opts">
         <ul>
             <li>
-                <a [class]="getActiveClass('home')" (click)="selectOption('home')">
+                <a routerLink="/menu/home" [class]="getActiveClass('home')" (click)="selectOption('home')">
                     <i class="fas fa-home"></i>Home
                 </a>
             </li>
             <li>
-                <a [class]="getActiveClass('notifications')" (click)="selectOption('notifications')">
+                <a routerLink="/menu/notifications" [class]="getActiveClass('notifications')" (click)="selectOption('notifications')">
                     <i class="fas fa-bell"></i>Notificaciones
                 </a>
             </li>
             <li>
-                <a [class]="getActiveClass('users')" (click)="selectOption('users')">
+                <a routerLink="/menu/users" [class]="getActiveClass('users')" (click)="selectOption('users')">
                     <i class="fas fa-users"></i>Users
                 </a>
             </li>
             <li>
-                <a [class]="getActiveClass('settings')" (click)="selectOption('settings')">
+                <a routerLink="/menu/settings" [class]="getActiveClass('settings')" (click)="selectOption('settings')">
                     <i class="fas fa-cogs"></i>Settings
                 </a>
             </li>
