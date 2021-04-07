@@ -1,0 +1,29 @@
+<nav id="sidebar">
+    <div class="side-head">
+        <img src="assets/img/logo_app.svg" alt="logo-app">
+    </div>
+    <div class="side-opts">
+        <ul>
+            <li>
+                <a [class]="getActiveClass('home')" (click)="selectOption('home')">
+                    <i class="fas fa-home"></i>Home
+                </a>
+            </li>
+            <li>
+                <a [class]="getActiveClass('notifications')" (click)="selectOption('notifications')">
+                    <i class="fas fa-bell"></i>Notificaciones
+                </a>
+            </li>
+            <li>
+                <a [class]="getActiveClass('users')" (click)="selectOption('users')">
+                    <i class="fas fa-users"></i>Users
+                </a>
+            </li>
+            <li>
+                <a [class]="getActiveClass('settings')" (click)="selectOption('settings')">
+                    <i class="fas fa-cogs"></i>Settings
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

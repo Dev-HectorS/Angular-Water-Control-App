@@ -1,0 +1,32 @@
+#sidebar {
+  height: 100vh;
+  width: 200px;
+  background: var(--black-color);
+}
+
+.side-head img {
+  padding: 20px;
+}
+
+.side-opts ul li a {
+  display: block;
+  color: var(--grey-color);
+  padding: 20px 0px;
+}
+
+.current {
+  border-left: #ffffff 2px solid;
+  background: #5abce2;
+  color: #ffffff !important;
+}
+
+.side-opts ul li a:hover {
+  border-left: #ffffff 2px solid;
+  background: #5abce2;
+  color: #ffffff;
+}
+
+.side-opts ul li a i {
+  padding-left: 10px;
+  width: 40px;
+}

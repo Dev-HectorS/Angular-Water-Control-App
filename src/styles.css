@@ -27,3 +27,8 @@ li {
 img {
   width: 100%;
 }
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+}
