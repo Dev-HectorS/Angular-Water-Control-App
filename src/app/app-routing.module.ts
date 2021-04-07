@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'menu',
     loadChildren: () => import('./water/water.module').then(m => m.WaterModule)
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'menu'
   }
 ];
 
