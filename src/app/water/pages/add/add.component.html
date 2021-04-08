@@ -1,1 +1,66 @@
-<p>add works!</p>
+<div id="add">
+    <div class="box">
+
+        <!-- Return Home -->
+        <div class="left-pos-btn">
+            <button type="button" class="active-btn"> <i class="fas fa-chevron-left"></i> Return</button>
+        </div>
+
+        <!-- Form Start -->
+        <form class="form-user" autocomplete="off" (ngSubmit)="save()" [formGroup]='form'>
+            <!-- ID -->
+            <div class="field-add">
+                <label class="label" for="waterID">Water meter ID</label>
+                <div class="col-input">
+                    <input class="input" type="text" id="waterID" formControlName="id" placeholder="0000000" />
+                    <span class="success">Only set existen users</span>
+                    <span class="warn">
+                        {{idErrMsg}}
+                    </span>
+                </div>
+            </div>
+            <!-- Fullname -->
+            <div class="field-add">
+                <label class="label" for="name">User's full name</label>
+                <div class="col-input">
+                    <input class="input" type="text" id="name" formControlName="name" placeholder="User full name" />
+                    <span class="warn" *ngIf="fieldNotValid('name')">Name is required</span>
+                </div>
+            </div>
+            <!-- Service status -->
+            <div class="field-add">
+                <label class="label" for="service">Service status</label>
+                <div class="col-input">
+                    <select class="input" id="service" formControlName="status">
+                        <option value="" selected disabled>Select status</option>
+                        <option value="notactive">Not active</option>
+                        <option value="active">Active</option>
+                    </select>
+                    <span class="warn" *ngIf="fieldNotValid('status')">Select service status</span>
+                </div>
+            </div>
+            <!-- Year of service use -->
+            <div class="field-add">
+                <label class="label" for="serviceyear">Year of service use</label>
+                <div class="col-input">
+                    <input class="input" type="number" id="serviceyear" formControlName="initialYear" placeholder="2000" />
+                    <span class="warn" *ngIf="fieldNotValid('initialYear')">Select service initial year</span>
+                </div>
+            </div>
+            <!-- M3 consumed -->
+            <div class="field-add">
+                <label class="label" for="waterconsumed">M3 consumed</label>
+                <div class="col-input">
+                    <input class="input" type="number" id="waterconsumed" formControlName="initalM3" placeholder="0" />
+                    <span class="warn" *ngIf="fieldNotValid('initalM3')">Number not valid</span>
+                </div>
+            </div>
+        </form>
+        <!-- Form End -->
+
+        <!-- Register New User -->
+        <div class="right-pos-btn">
+            <button type="button" [class]="getActiveClass()" [disabled]="form.invalid" (click)="save()">Register User</button>
+        </div>
+    </div>
+</div>
