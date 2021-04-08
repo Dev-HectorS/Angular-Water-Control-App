@@ -1,1 +1,48 @@
-<p>add works!</p>
+<div id="add">
+    <div class="box">
+
+        <!-- Return Home -->
+        <div class="left-pos-btn">
+            <button type="button" class="btn"> <i class="fas fa-chevron-left"></i> Return</button>
+        </div>
+
+        <!-- Form Start -->
+        <form class="form-user" autocomplete="off">
+            <!-- ID -->
+            <div class="field-add">
+                <label class="label" for="waterID">Water meter ID</label>
+                <input class="input" type="text" id="waterID" name="waterID" placeholder="0000001" />
+            </div>
+            <!-- Fullname -->
+            <div class="field-add">
+                <label class="label" for="name">User's full name</label>
+                <input class="input" type="text" id="name" name="name" placeholder="User full name" />
+            </div>
+            <!-- Service status -->
+            <div class="field-add">
+                <label class="label" for="service">Service status</label>
+                <select class="input" name="service" id="service">
+                    <option value="pending" selected>Pending</option>
+                    <option value="notactive">Not active</option>
+                    <option value="active">Active</option>
+                </select>
+            </div>
+            <!-- Year of service use -->
+            <div class="field-add">
+                <label class="label" for="serviceyear">Year of service use</label>
+                <input class="input" type="text" id="serviceyear" name="serviceyear" placeholder="2000" />
+            </div>
+            <!-- M3 consumed -->
+            <div class="field-add">
+                <label class="label" for="waterconsumed">M3 consumed</label>
+                <input class="input" type="text" id="waterconsumed" name="waterconsumed" placeholder="0" />
+            </div>
+        </form>
+        <!-- Form End -->
+
+        <!-- Register New User -->
+        <div class="right-pos-btn">
+            <button type="button" class="btn">Register User</button>
+        </div>
+    </div>
+</div>
