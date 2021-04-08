@@ -9,6 +9,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AddComponent } from './pages/add/add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddComponent } from './pages/add/add.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     WaterRoutingModule
   ]
 })
