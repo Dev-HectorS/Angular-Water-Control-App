@@ -28,10 +28,16 @@
   width: 25%;
 }
 
-.input {
-  padding-left: 10px;
+.col-input {
   width: 60%;
   min-width: 60%;
+  min-height: 35px;
+}
+
+.input {
+  padding-left: 10px;
+  width: 100%;
+  min-width: 100%;
   min-height: 35px;
   color: var(--text-grey-color);
   font-weight: 300;

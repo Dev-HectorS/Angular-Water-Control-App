@@ -3,46 +3,64 @@
 
         <!-- Return Home -->
         <div class="left-pos-btn">
-            <button type="button" class="btn"> <i class="fas fa-chevron-left"></i> Return</button>
+            <button type="button" class="active-btn"> <i class="fas fa-chevron-left"></i> Return</button>
         </div>
 
         <!-- Form Start -->
-        <form class="form-user" autocomplete="off">
+        <form class="form-user" autocomplete="off" (ngSubmit)="save()" [formGroup]='form'>
             <!-- ID -->
             <div class="field-add">
                 <label class="label" for="waterID">Water meter ID</label>
-                <input class="input" type="text" id="waterID" name="waterID" placeholder="0000001" />
+                <div class="col-input">
+                    <input class="input" type="text" id="waterID" formControlName="id" placeholder="0000000" />
+                    <span class="success">Only set existen users</span>
+                    <span class="warn">
+                        {{idErrMsg}}
+                    </span>
+                </div>
             </div>
             <!-- Fullname -->
             <div class="field-add">
                 <label class="label" for="name">User's full name</label>
-                <input class="input" type="text" id="name" name="name" placeholder="User full name" />
+                <div class="col-input">
+                    <input class="input" type="text" id="name" formControlName="name" placeholder="User full name" />
+                    <span class="warn" *ngIf="fieldNotValid('name')">Name is required</span>
+                </div>
             </div>
             <!-- Service status -->
             <div class="field-add">
                 <label class="label" for="service">Service status</label>
-                <select class="input" name="service" id="service">
-                    <option value="pending" selected>Pending</option>
-                    <option value="notactive">Not active</option>
-                    <option value="active">Active</option>
-                </select>
+                <div class="col-input">
+                    <select class="input" id="service" formControlName="status">
+                        <option value="" selected disabled>Select status</option>
+                        <option value="notactive">Not active</option>
+                        <option value="active">Active</option>
+                    </select>
+                    <span class="warn" *ngIf="fieldNotValid('status')">Select service status</span>
+                </div>
             </div>
             <!-- Year of service use -->
             <div class="field-add">
                 <label class="label" for="serviceyear">Year of service use</label>
-                <input class="input" type="text" id="serviceyear" name="serviceyear" placeholder="2000" />
+                <div class="col-input">
+                    <input class="input" type="number" id="serviceyear" formControlName="initialYear" placeholder="2000" />
+                    <span class="warn" *ngIf="fieldNotValid('initialYear')">Select service initial year</span>
+                </div>
             </div>
             <!-- M3 consumed -->
             <div class="field-add">
                 <label class="label" for="waterconsumed">M3 consumed</label>
-                <input class="input" type="text" id="waterconsumed" name="waterconsumed" placeholder="0" />
+                <div class="col-input">
+                    <input class="input" type="number" id="waterconsumed" formControlName="initalM3" placeholder="0" />
+                    <span class="warn" *ngIf="fieldNotValid('initalM3')">Number not valid</span>
+                </div>
             </div>
         </form>
         <!-- Form End -->
 
         <!-- Register New User -->
         <div class="right-pos-btn">
-            <button type="button" class="btn">Register User</button>
+            <button type="button" [class]="getActiveClass()" [disabled]="form.invalid" (click)="save()">Register User</button>
         </div>
     </div>
 </div>
