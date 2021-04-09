@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-add',
@@ -16,7 +19,6 @@ export class AddComponent implements OnInit {
     initalM3: [0, [Validators.required, Validators.min(0)]]
   })
 
-
   get idErrMsg(): string {
     const errors = this.form.get('id')?.errors;
     if (errors?.pattern) {
@@ -27,7 +29,9 @@ export class AddComponent implements OnInit {
     return '';
   }
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+    private usersServices: UsersService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -41,15 +45,16 @@ export class AddComponent implements OnInit {
       this.form.value.id = this.form.value.id.padStart(7, 0);
     }
 
-    console.log(this.form);
-
-    this.reset();
-    this.form.reset();
+    const user = { ...this.form.value };
+    if (user.id <= 0) {
+      console.log('s');
+      delete user.id;
+    }
+    this.usersServices.createUser(user).subscribe();
   }
 
-  reset() {
-    this.form.value.initialYear = 2000;
-    this.form.value.initalM3 = 0;
+  return() {
+    this.router.navigate(['menu/home']);
   }
 
   fieldNotValid(field: string) {
