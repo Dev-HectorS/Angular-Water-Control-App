@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -28,7 +30,8 @@ export class AddComponent implements OnInit {
   }
 
   constructor(private _formBuilder: FormBuilder,
-    private usersServices: UsersService) { }
+    private usersServices: UsersService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +51,10 @@ export class AddComponent implements OnInit {
       delete user.id;
     }
     this.usersServices.createUser(user).subscribe();
+  }
+
+  return() {
+    this.router.navigate(['menu/home']);
   }
 
   fieldNotValid(field: string) {
