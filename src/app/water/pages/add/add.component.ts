@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-add',
@@ -16,7 +17,6 @@ export class AddComponent implements OnInit {
     initalM3: [0, [Validators.required, Validators.min(0)]]
   })
 
-
   get idErrMsg(): string {
     const errors = this.form.get('id')?.errors;
     if (errors?.pattern) {
@@ -27,7 +27,8 @@ export class AddComponent implements OnInit {
     return '';
   }
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+    private usersServices: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -41,7 +42,12 @@ export class AddComponent implements OnInit {
       this.form.value.id = this.form.value.id.padStart(7, 0);
     }
 
-    console.log(this.form);
+    const user = { ...this.form.value };
+    if (user.id <= 0) {
+      console.log('s');
+      delete user.id;
+    }
+    this.usersServices.createUser(user).subscribe();
 
     this.reset();
     this.form.reset();
