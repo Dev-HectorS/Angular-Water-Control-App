@@ -48,14 +48,6 @@ export class AddComponent implements OnInit {
       delete user.id;
     }
     this.usersServices.createUser(user).subscribe();
-
-    this.reset();
-    this.form.reset();
-  }
-
-  reset() {
-    this.form.value.initialYear = 2000;
-    this.form.value.initalM3 = 0;
   }
 
   fieldNotValid(field: string) {
