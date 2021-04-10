@@ -1,1 +1,46 @@
-<p>user works!</p>
+<div id="user">
+    <div class="right-pos-btn">
+        <button type="button" class="active-btn" routerLink="../add">Add Month <i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="table">
+        <div class="table-header">
+            <h1>Water Medidor:</h1>
+            <div class="opts">
+                <select class="input" name="year" id="year">
+                    <option value="2020" selected>2020</option>
+                    <option value="2019">2019</option>
+                </select>
+            </div>
+        </div>
+        <div class="table-body">
+            <div class="table-row" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1]">
+                <div class="row-item text-item">
+                    <p class="title-name">Month:</p>
+                    <p class="info-text">March</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Measurement(M3):</p>
+                    <p class="info-text">232</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Measurement(M3) Used:</p>
+                    <p class="info-text">10</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Day and date of payment:</p>
+                    <p class="info-text">12-02-2012 / 12:00 PM</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Payment:</p>
+                    <p class="info-text">$180</p>
+                </div>
+                <div class="row-item">
+                    <p class="chip-add chip-user">Paid</p>
+                </div>
+                <div class="opts-item">
+                    <button class="opts-btn"><i class=" fa fa-ellipsis-v "></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
