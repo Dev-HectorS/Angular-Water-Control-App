@@ -1,6 +1,6 @@
 <div id="users">
     <div class="right-pos-btn">
-        <button type="button" class="active-btn" (click)="null"> <i class="fas fa-chevron-left"></i> Return</button>
+        <button type="button" class="active-btn" (click)="null"> <i class="fas fa-chevron-right"></i> Add User</button>
     </div>
     <div class="table">
         <div class="table-header">
@@ -32,7 +32,7 @@
                     <button class="opts-btn"><i class=" fa fa-ellipsis-v "></i></button>
                 </div>
                 <div class="row-item opts-item">
-                    <button class="opts-btn"><i class=" fa fa-chevron-circle-right "></i></button>
+                    <button type="button" class="opts-btn" [routerLink]="['./','hero']"><i class=" fa fa-chevron-circle-right "></i></button>
                 </div>
             </div>
         </div>

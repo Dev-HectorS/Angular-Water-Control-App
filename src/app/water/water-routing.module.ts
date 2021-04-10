@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: 'add', component: AddComponent },
       { path: 'edit/:id', component: AddComponent },
-      { path: ':id', component: UserComponent },
+      { path: 'users/:id', component: UserComponent },
       { path: '**', redirectTo: 'home' }
     ]
   }
