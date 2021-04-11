@@ -1,1 +1,63 @@
-<p>month works!</p>
+<div id="month">
+    <div class="box">
+        <!-- Return Home -->
+        <div class="left-pos-btn">
+            <button type="button" class="active-btn" (click)="null"> <i class="fas fa-chevron-left"></i> Return</button>
+        </div>
+
+        <!-- Form Start -->
+        <form class="form-user" autocomplete="off">
+            <!-- ID -->
+            <div class="field-add">
+                <label class="label">Month</label>
+                <div class="col-input">
+                    <input class="input" type="text" placeholder="" />
+                </div>
+            </div>
+            <!-- Total consumed  -->
+            <div class="field-add">
+                <label class="label">Total consumed:</label>
+                <div class="col-input">
+                    <input class="input" type="number" placeholder="" />
+                </div>
+            </div>
+            <!--Month consumed-->
+            <div class="field-add">
+                <label class="label">Month consumed:</label>
+                <div class="col-input">
+                    <input class="input" type="number" placeholder="" />
+                </div>
+            </div>
+            <!-- Payment cost -->
+            <div class="field-add">
+                <label class="label">Month cost:</label>
+                <div class="col-input">
+                    <input class="input" type="number" placeholder="" />
+                </div>
+            </div>
+            <!-- Date of payment -->
+            <div class="field-add">
+                <label class="label">Date of payment:</label>
+                <div class="col-input">
+                    <input class="input" type="date" placeholder="" />
+                </div>
+            </div>
+            <!-- Payment status -->
+            <div class="field-add">
+                <label class="label">Status of payment:</label>
+                <div class="col-input">
+                    <select class="input" formControlName="status">
+                        <option value="false">Not paid</option>
+                        <option value="true">Paid</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <!-- Form End -->
+
+        <!-- Register New User -->
+        <div class="right-pos-btn">
+            <button type="button" [class]="getActiveClass()">Update</button>
+        </div>
+    </div>
+</div>

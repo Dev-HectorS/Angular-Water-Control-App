@@ -12,4 +12,7 @@ export class MonthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getActiveClass() {
+    return (true) ? 'disabled-btn' : 'active-btn';
+  }
 }
