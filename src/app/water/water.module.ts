@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { WaterRoutingModule } from './water-routing.module';
 
@@ -9,7 +10,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AddComponent } from './pages/add/add.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MonthComponent } from './pages/month/month.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UsersComponent,
     UserComponent,
     SettingsComponent,
-    AddComponent
+    AddComponent,
+    MonthComponent
   ],
   imports: [
     CommonModule,

@@ -7,6 +7,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { UserComponent } from './pages/user/user.component';
 import { AddComponent } from './pages/add/add.component';
+import { MonthComponent } from './pages/month/month.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: 'add', component: AddComponent },
       { path: 'edit/:id', component: AddComponent },
-      { path: ':id', component: UserComponent },
+      { path: 'users/:id', component: UserComponent },
+      { path: 'month', component: MonthComponent },
       { path: '**', redirectTo: 'home' }
     ]
   }

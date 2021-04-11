@@ -1,1 +1,40 @@
-<p>users works!</p>
+<div id="users">
+    <div class="right-pos-btn">
+        <button type="button" class="active-btn" routerLink="../add"> <i class="fas fa-chevron-right"></i> Add User</button>
+    </div>
+    <div class="table">
+        <div class="table-header">
+            <h1>All users</h1>
+            <div class="opts">
+                <button class="opts-btn"><i class=" fa fa-search"></i></button>
+                <button class="opts-btn"><i class=" fa fa-sort"></i></button>
+                <button class="opts-btn"><i class=" fa fa-filter "></i></button>
+            </div>
+        </div>
+        <div class="table-body">
+            <div class="table-row" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1]">
+                <div class="row-item text-item">
+                    <p class="title-name">Water Meter ID:</p>
+                    <p class="info-text">17067537</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Robert Downy</p>
+                    <p class="info-text">Date added: 12-02-2012</p>
+                </div>
+                <div class="row-item text-item">
+                    <p class="title-name">Last Paided</p>
+                    <p class="info-text">12-03-2012 / 12:20 PM</p>
+                </div>
+                <div class="row-item">
+                    <p class="chip-add chip-user">Active</p>
+                </div>
+                <div class="opts-item">
+                    <button class="opts-btn"><i class=" fa fa-ellipsis-v "></i></button>
+                </div>
+                <div class="row-item opts-item">
+                    <button type="button" class="opts-btn" [routerLink]="['./','hero']"><i class=" fa fa-chevron-circle-right "></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
