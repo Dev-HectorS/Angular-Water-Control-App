@@ -12,9 +12,8 @@
             <div class="field-add">
                 <label class="label" for="waterID">Water meter ID</label>
                 <div class="col-input">
-                    <input class="input" type="text" id="waterID" formControlName="id" placeholder="0000000" />
-                    <span class="success">Only set existen users</span>
-                    <span class="warn">
+                    <input class="input" type="text" id="waterID" formControlName="waterMeterID" placeholder="0000000" />
+                    <span class="warn" *ngIf="fieldNotValid('waterMeterID')">
                         {{idErrMsg}}
                     </span>
                 </div>
@@ -33,8 +32,8 @@
                 <div class="col-input">
                     <select class="input" id="service" formControlName="status">
                         <option value="" selected disabled>Select status</option>
-                        <option value="notactive">Not active</option>
-                        <option value="active">Active</option>
+                        <option value="false">Not active</option>
+                        <option value="true">Active</option>
                     </select>
                     <span class="warn" *ngIf="fieldNotValid('status')">Select service status</span>
                 </div>
