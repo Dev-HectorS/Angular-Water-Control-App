@@ -12,7 +12,7 @@ import { UsersService } from '../../services/users.service';
 export class AddComponent implements OnInit {
 
   form: FormGroup = this._formBuilder.group({
-    id: ['', [Validators.maxLength(7), Validators.pattern('[0-9]+')]],
+    waterMeterID: ['', [Validators.required, Validators.maxLength(7), Validators.pattern('[0-9]+')]],
     name: ['', [Validators.required, Validators.minLength(3)]],
     status: ['', [Validators.required]],
     initialYear: [2000, [Validators.required, Validators.minLength(4), Validators.min(2000), Validators.max(new Date().getFullYear())]],
@@ -20,8 +20,10 @@ export class AddComponent implements OnInit {
   })
 
   get idErrMsg(): string {
-    const errors = this.form.get('id')?.errors;
-    if (errors?.pattern) {
+    const errors = this.form.get('waterMeterID')?.errors;
+    if (errors?.required) {
+      return 'Water meter ID is required';
+    } else if (errors?.pattern) {
       return 'Characters are not valid';
     } else if (errors) {
       return 'No more than 7 digits';
@@ -40,16 +42,10 @@ export class AddComponent implements OnInit {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
+    } else if (this.form.value.waterMeterID.length > 0) {
+      this.form.value.waterMeterID = this.form.value.waterMeterID.padStart(7, 0);
     }
-    else if (this.form.value.id.length > 0) {
-      this.form.value.id = this.form.value.id.padStart(7, 0);
-    }
-
     const user = { ...this.form.value };
-    if (user.id <= 0) {
-      console.log('s');
-      delete user.id;
-    }
     this.usersServices.createUser(user).subscribe();
   }
 
