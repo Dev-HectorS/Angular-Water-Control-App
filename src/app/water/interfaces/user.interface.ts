@@ -11,12 +11,13 @@ export interface User {
 
 
 export interface Year {
-    year: number;
-    months: Month[]
+    year: string
+    month: Month[]
 }
 
 
 export interface Month {
+    id?: string;
     month: string;
     measurement: number;
     measurementUsed: number;
