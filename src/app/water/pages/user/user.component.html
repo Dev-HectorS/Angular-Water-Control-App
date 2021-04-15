@@ -4,38 +4,41 @@
     </div>
     <div class="table">
         <div class="table-header">
-            <h1>Water Medidor:</h1>
+            <h1 class="title-name">Water Meter: {{user?.waterMeterID}}</h1>
             <div class="opts">
-                <select class="input" name="year" id="year">
-                    <option value="2020" selected>2020</option>
-                    <option value="2019">2019</option>
-                </select>
+                <form [formGroup]="form">
+                    <select class="input" formControlName="year">
+                        <option value="" *ngIf="user?.years" disabled>Select year</option>
+                        <option [value]="i" *ngFor="let year of years;let i = index">{{year}}</option>
+                    </select>
+                </form>
             </div>
         </div>
         <div class="table-body">
-            <div class="table-row" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1]">
+            <div class="table-row" *ngFor="let month of months">
                 <div class="row-item text-item">
-                    <p class="title-name">Month:</p>
-                    <p class="info-text">March</p>
+                    <p class="title-name">Month: {{month.month}}</p>
+                    <!-- <p class="info-text"></p> -->
                 </div>
                 <div class="row-item text-item">
-                    <p class="title-name">Measurement(M3):</p>
-                    <p class="info-text">232</p>
+                    <p class="title-name">Measurement:</p>
+                    <p class="info-text">{{month.measurement}}</p>
                 </div>
                 <div class="row-item text-item">
-                    <p class="title-name">Measurement(M3) Used:</p>
-                    <p class="info-text">10</p>
+                    <p class="title-name">Measurement Used:</p>
+                    <p class="info-text">{{month.measurementUsed}}</p>
                 </div>
                 <div class="row-item text-item">
-                    <p class="title-name">Day and date of payment:</p>
-                    <p class="info-text">12-02-2012 / 12:00 PM</p>
+                    <p class="title-name">Payment date:</p>
+                    <p class="info-text">{{month.datePayment}}</p>
                 </div>
                 <div class="row-item text-item">
                     <p class="title-name">Payment:</p>
-                    <p class="info-text">$180</p>
+                    <p class="info-text">{{month.payment}}</p>
                 </div>
                 <div class="row-item">
-                    <p class="chip-add chip-user">Paid</p>
+                    <p class="chip-add chip-user" *ngIf="month.status">Paid</p>
+                    <p class="chip-delete chip-update" *ngIf="!month.status">Pending</p>
                 </div>
                 <div class="opts-item">
                     <button class="opts-btn"><i class=" fa fa-ellipsis-v "></i></button>
