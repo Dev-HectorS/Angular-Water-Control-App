@@ -1,1 +1,25 @@
-<p>settings works!</p>
+<div id="settings">
+
+    <div class="settings-opts">
+        <!-- Language -->
+        <div class="field-settings">
+            <label class="label">Language</label>
+            <div class="col-input">
+                <select class="input" type="text">
+                    <option value="">English</option>
+                </select>
+            </div>
+        </div>
+        <!-- Cost -->
+        <div class="field-settings">
+            <label class="label">M3 cost</label>
+            <div class="col-input">
+                <input class="input" type="text" placeholder="$ Cost" />
+            </div>
+        </div>
+    </div>
+    <!-- Save settings -->
+    <div class="right-pos-btn">
+        <button type="button" class="active-btn" (click)="null">Save settings</button>
+    </div>
+</div>
